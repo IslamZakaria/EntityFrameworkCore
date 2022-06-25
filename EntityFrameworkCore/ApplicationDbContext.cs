@@ -20,7 +20,8 @@ namespace EntityFrameworkCore
         {
             modelBuilder.Ignore<Post>();
             new BlogEntityTypeConfiguration().Configure(modelBuilder.Entity<Blog>());
-
+            modelBuilder.Entity<Blog>()
+                .ToTable("Blogs", b => b.ExcludeFromMigrations());
         }
         public DbSet<Blog> Blogs { get; set; }
     }
