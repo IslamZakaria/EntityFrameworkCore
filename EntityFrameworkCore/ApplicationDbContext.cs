@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EntityFrameworkCore.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,8 @@ namespace EntityFrameworkCore
         {
             options.UseSqlServer(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=EntityFrameworkCore;Integrated Security=True");
         }
+
+        public DbSet<Blog> Blogs { get; set; }
     }
 }
  
