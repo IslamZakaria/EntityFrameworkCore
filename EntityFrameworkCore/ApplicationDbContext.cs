@@ -18,7 +18,9 @@ namespace EntityFrameworkCore
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Ignore<Post>();
             new BlogEntityTypeConfiguration().Configure(modelBuilder.Entity<Blog>());
+
         }
         public DbSet<Blog> Blogs { get; set; }
     }
