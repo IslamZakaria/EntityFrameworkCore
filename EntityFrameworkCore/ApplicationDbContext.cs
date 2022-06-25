@@ -1,4 +1,5 @@
-﻿using EntityFrameworkCore.Models;
+﻿using EntityFrameworkCore.Configurations;
+using EntityFrameworkCore.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,10 @@ namespace EntityFrameworkCore
             options.UseSqlServer(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=EntityFrameworkCore;Integrated Security=True");
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            new BlogEntityTypeConfiguration().Configure(modelBuilder.Entity<Blog>());
+        }
         public DbSet<Blog> Blogs { get; set; }
     }
 }
